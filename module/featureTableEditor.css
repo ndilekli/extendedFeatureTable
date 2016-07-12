@@ -1,0 +1,50 @@
+.dgrid {  
+    font-size: 9px;  
+}  
+.fwijitsFeatureTableMapSelectedRows .dgrid-selected {  
+    background-color: #00ffff;  
+}  
+  
+.fwijitsFeatureTableMapSelectedRows .dgrid-row:hover {  
+    border: 2px solid #ff00ff;  
+    background-color: transparent;  
+}  
+.fwijitsFeatureTableMapSelectedRows .dgrid-selected:hover {  
+    border: 2px solid #ff00ff;  
+    background-color: #00ffff;  
+}  
+  
+.fwijitsFeatureTableAttInspector .atiLayerName {  
+  display:none;  
+}  
+  
+.esri-feature-table-editor-toolbar{  
+  
+}  
+  
+.fwijitsFeatureTable .esri-feature-table-closer-container{  
+  display:none;  
+}  
+  
+.fwijitsFeatureTableAttInspector .atiAttributes .dijitButtonNode{  
+  border-radius:0px !important;  
+}  
+.fwijitsFeatureTableAttInspector .atiField{  
+  padding:0px !important;  
+  margin:2px;  
+}  
+  
+.fwijitsFeatureTableEditorIcon {  
+    background-image: url('images/editorIconsEnabled.png'); /* editor icons sprite image for the enabled state */  
+    background-repeat: no-repeat;  
+    width: 18px;  
+    height: 18px;  
+    text-align: center;  
+}  
+.dijitDisabled .fwijitsFeatureTableEditorIcon {  
+    background-image: url('images/editorIconsDisabled.png'); /* editor icons sprite image for the disabled state */  
+}  
+  
+.fwijitsFeatureTableAdd { background-position: 0; }  
+.fwijitsFeatureTableEdit { background-position: -18px; }  
+.fwijitsFeatureTableDelete { background-position: -36px; }  

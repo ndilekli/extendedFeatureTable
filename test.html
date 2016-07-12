@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>FeatureTable without map</title>
+  <link rel="stylesheet" href="//js.arcgis.com/3.17/dijit/themes/claro/claro.css">
+  <link rel="stylesheet" href="//js.arcgis.com/3.17/esri/css/esri.css">
+  <link rel="stylesheet" href="module/featureTableEditor.css">
+ 
+		<script type="text/javascript">			
+			var dojoConfig = {
+				paths : {
+					//if you want to host on your own server, download and put in folders then use path like:
+					extendedFT : location.pathname.replace(/\/[^/]+$/, '') + '/module'
+				},
+				parseOnLoad : false,
+				async : false
+			};
+		</script>
+		<script src="https://js.arcgis.com/3.16/"></script>
+  <style>
+    html, 
+    body, 
+    #myTableNode {
+      width:100%;
+      height:100%;
+      margin:0;
+      padding:0;
+    }
+    
+    #top, 
+    #bot {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+
+  <script>
+    var map;
+    //console.log(location.pathname.replace(/\/[^/]+$/, "") + "/module");
+
+    require([
+      "esri/layers/FeatureLayer",
+      "esri/dijit/FeatureTable",
+      "extendedFT/featureTableEditor",
+
+      "dojo/dom",
+      "dojo/parser",
+      "dojo/ready",
+    ], function (
+      FeatureLayer, FeatureTable,featureTableEditor,
+      dom, parser, ready
+    ) {
+
+      parser.parse();
+
+      ready(function(){
+
+        // Place a non spatial and editable feature layer
+        var myFeatureLayer = new FeatureLayer("", {
+          mode: FeatureLayer.MODE_ONDEMAND,
+          visible: true,
+          id: "fLayer"
+        });
+
+        myTable = new featureTableEditor({
+          featureLayer : myFeatureLayer,
+          showGridMenu: false
+        }, "myTableNode");
+
+        myTable.startup();
+      });
+    });
+  </script>
+</head>
+
+<body class="claro esri">
+  <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline', gutters: false" style="width:100%; height:100%;">
+    <div id="top" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'">
+    <p><em>The FeatureTable dijit supports tables with lots of features, with the table growing as you scroll.</em></p>
+    </div>
+    <div id="bot" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'">
+      <div id="myTableNode"></div>
+    </div>
+  </div>
+</body>
+
+</html> 
